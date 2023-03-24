@@ -10,15 +10,15 @@ export const GridMovies = ({ data }: Props) => {
     <main className=" flex flex-col justify-start items-center  my-2">
       <div className="flex justify-start items-start">
         <img
-          src="https://2.bp.blogspot.com/-TOCRLYBV3N4/UsbbAXBZmkI/AAAAAAAAPuM/DbPHOcuv6HA/s1600/A-Menina-Que-Roubava-Livros-capa-filme-1.jpg"
+          src={`https://image.tmdb.org/t/p/original/${data.poster_path}`}
           className=" w-[154px] h-[232px]"
         />
       </div>
-      <div className="flex items-center justify-start  flex-col mt-2 w-auto h-auto">
-        <div className="max-w-[80%] h-[80%]  items-center flex mt-1 justify-start">
+      <div className="flex items-center justify-center  flex-col mt-2 w-auto h-auto">
+        <div className="max-w-[80%] h-[100%]  items-center flex mt-1 justify-center">
           <h1 className="font-bold text-[14px]">{data.title}</h1>
         </div>
-        <div>
+        <div className="w-[100%] flex justify-center p-2">
           <p className="text-[12px] text-[#646464] font-bold leading-[18px]">
             {formatData(data.release_date)}
           </p>

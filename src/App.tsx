@@ -1,23 +1,23 @@
 import { useState, useEffect } from "react";
 import { GridMovies } from "./components/GridMovies";
 import { Hero } from "./components/Hero";
-import axios from "axios";
-import dotenv from "dotenv";
 import { Movie } from "./types/MoviesTypes";
+import { config } from "./config";
+import axios from "axios";
 
 function App() {
   const [data, setData] = useState<Movie[]>([]);
 
   useEffect(() => {
-    handleRequest();
+    handlePopularMovies();
   }, []);
 
   console.log(data);
 
-  const handleRequest = async (): Promise<void> => {
+  const handlePopularMovies = async (): Promise<void> => {
     await axios
       .get(
-        `https://api.themoviedb.org/3/movie/popular?api_key=67f9b0b07f86f15eb11e9686a713fa10&language=pt-BR&page=1`
+        `${config.base_URL}/popular?api_key=${config.apiKey}&language=pt-BR&page=1`
       )
       .then((response) => {
         setData(response.data.results);
