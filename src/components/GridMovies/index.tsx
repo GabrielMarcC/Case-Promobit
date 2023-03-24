@@ -1,4 +1,5 @@
 import { Movie } from "../../types/MoviesTypes";
+import { formatData } from "../../utils/formatData";
 
 type Props = {
   data: Movie;
@@ -19,7 +20,7 @@ export const GridMovies = ({ data }: Props) => {
         </div>
         <div>
           <p className="text-[12px] text-[#646464] font-bold leading-[18px]">
-            {data.release_date}
+            {formatData(data.release_date)}
           </p>
         </div>
       </div>
