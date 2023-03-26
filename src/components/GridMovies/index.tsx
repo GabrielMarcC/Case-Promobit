@@ -15,11 +15,11 @@ export const GridMovies = ({ data }: Props) => {
         />
       </div>
       <div className="flex items-center justify-center  flex-col mt-2 w-auto h-auto">
-        <div className="max-w-[80%] h-[100%]  items-center flex mt-1 justify-center">
-          <h1 className="font-bold text-[14px]">{data.title}</h1>
+        <div className="w-[158px]  md:pl-2 h-[100%]  items-center flex mt-1">
+          <h1 className="font-bold text-[14px] text-left ">{data.title}</h1>
         </div>
-        <div className="w-[100%] flex justify-center p-2">
-          <p className="text-[12px] text-[#646464] font-bold leading-[18px]">
+        <div className="w-[158px]">
+          <p className="text-[12px] text-[#646464] font-bold leading-[18px] text-left md:pl-2">
             {formatData(data.release_date)}
           </p>
         </div>
