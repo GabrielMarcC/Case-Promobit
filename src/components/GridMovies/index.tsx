@@ -6,6 +6,8 @@ type Props = {
 };
 
 export const GridMovies = ({ data }: Props) => {
+  const newData = formatData(data.release_date);
+
   return (
     <main className=" flex flex-col justify-start items-center  my-2">
       <div className="flex justify-start items-start">
@@ -20,7 +22,7 @@ export const GridMovies = ({ data }: Props) => {
         </div>
         <div className="w-[158px]">
           <p className="text-[12px] text-[#646464] font-bold leading-[18px] text-left md:pl-2">
-            {formatData(data.release_date)}
+            {newData}
           </p>
         </div>
       </div>
