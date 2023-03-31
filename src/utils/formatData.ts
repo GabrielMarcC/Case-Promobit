@@ -15,6 +15,6 @@ export const formatData = (data: string) => {
 
     return finalData;
   } else {
-    console.error();
+    throw new Error("The 'data' parameter cannot be empty.");
   }
 };
