@@ -13,7 +13,21 @@ export const formatData = (data: string) => {
       .toUpperCase()
       .replace(".", " ")} ${splitData[4]}`;
 
-    return finalData;
+    let dataReceived = new Date(data);
+    const day = dataReceived.getDate();
+    const month = dataReceived.getMonth() + 1;
+    const year = dataReceived.getFullYear();
+    const fullYear = `${day < 10 ? "0" + day : day}/${
+      month < 10 ? "0" + month : month
+    }/${year}`;
+
+    const dataOpts = {
+      finalData,
+      year,
+      fullYear,
+    };
+
+    return dataOpts;
   } else {
     throw new Error("The 'data' parameter cannot be empty.");
   }

@@ -32,7 +32,7 @@ export const Home = () => {
       <div className="flex justify-center lg:mt-8">
         <div className="grid gap-x-4 grid-cols-2 md:pt-2 md:px-3 lg:gap-x-8 md:grid-cols-6 md:max-w-[1050px]">
           {data.map((movie: Movie, index) => {
-            return <GridMovies data={movie} key={index} />;
+            return <GridMovies data={movie} key={index} id={movie.id} />;
           })}
         </div>
       </div>

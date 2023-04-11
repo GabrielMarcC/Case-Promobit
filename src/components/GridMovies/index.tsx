@@ -1,15 +1,25 @@
 import { Movie } from "../../types/MoviesTypes";
 import { formatData } from "../../utils/formatData";
+import { useNavigate } from "react-router";
 
 type Props = {
   data: Movie;
+  id: number;
 };
 
-export const GridMovies = ({ data }: Props) => {
+export const GridMovies = ({ data, id }: Props) => {
   const newData = formatData(data.release_date);
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/moviedetails/${id}`);
+  };
 
   return (
-    <main className=" flex flex-col justify-start items-center  my-2">
+    <main
+      className="flex flex-col justify-start items-center  my-2 cursor-pointer"
+      onClick={handleClick}
+    >
       <div className="flex justify-start items-start">
         <img
           src={`https://image.tmdb.org/t/p/original/${data.poster_path}`}
@@ -22,7 +32,7 @@ export const GridMovies = ({ data }: Props) => {
         </div>
         <div className="w-[158px]">
           <p className="text-[12px] text-[#646464] font-bold leading-[18px] text-left md:pl-2">
-            {newData}
+            {newData.finalData}
           </p>
         </div>
       </div>
