@@ -1,4 +1,3 @@
-import { config } from "../config";
 import axios from "axios";
 import { PopularMovies } from "../types/MoviesTypes";
 import { GenresResponse } from "../types/GenresTypes";
