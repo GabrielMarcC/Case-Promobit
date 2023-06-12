@@ -1,4 +1,4 @@
-export interface Credits {
+export interface CreditsTypes {
   id?: number;
   cast: Cast[];
   crew: Crew[];

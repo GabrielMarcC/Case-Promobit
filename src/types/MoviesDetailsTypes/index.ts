@@ -1,4 +1,4 @@
-export interface MoviesDetails {
+export interface MoviesDetailsTypes {
   adult: boolean;
   backdrop_path: string;
   belongs_to_collection: any;
@@ -21,7 +21,7 @@ export interface MoviesDetails {
   status: string;
   tagline: string;
   title: string;
-  videos: Results[];
+  videos: Videos;
   video: boolean;
   vote_average: number;
   vote_count: number;
@@ -49,7 +49,7 @@ export interface SpokenLanguage {
   name: string;
 }
 
-export interface Results {
+export interface Video {
   id: string;
   iso_639_1: string;
   iso_3166_1: string;
@@ -60,4 +60,8 @@ export interface Results {
   sit: string;
   size: number;
   type: string;
+}
+
+export interface Videos {
+  results: Video[];
 }
