@@ -10,7 +10,7 @@ import {
 export const MoviesServices = () => {
   const handlePopularMovies = async (page?: number): Promise<PopularMovies> => {
     const response = await axios.get<PopularMovies>(
-      `${import.meta.env.VITE_BASE_URL}/popular?api_key=${
+      `${import.meta.env.VITE_URL}/popular?api_key=${
         import.meta.env.VITE_API_KEY
       }&language=pt-BR&page=${page}`
     );
@@ -21,7 +21,7 @@ export const MoviesServices = () => {
     id?: string
   ): Promise<MoviesDetailsTypes> => {
     const response = await axios.get<MoviesDetailsTypes>(
-      `${import.meta.env.VITE_BASE_URL}/${id}?api_key=${
+      `${import.meta.env.VITE_URL}/${id}?api_key=${
         import.meta.env.VITE_API_KEY
       }&language=pt-BR&include_image_language=pt-BR&append_to_response=videos,images,release_dates`
     );
@@ -31,7 +31,7 @@ export const MoviesServices = () => {
 
   const handleCredits = async (id?: string): Promise<CreditsTypes> => {
     const response = await axios.get<CreditsTypes>(
-      `${import.meta.env.VITE_BASE_URL}/${id}/credits?api_key=${
+      `${import.meta.env.VITE_URL}/${id}/credits?api_key=${
         import.meta.env.VITE_API_KEY
       }&language=pt-BR`
     );
@@ -42,7 +42,7 @@ export const MoviesServices = () => {
     id?: string
   ): Promise<RecommendationsTypes> => {
     const response = await axios.get<RecommendationsTypes>(
-      `${import.meta.env.VITE_BASE_URL}/${id}/recommendations?api_key=${
+      `${import.meta.env.VITE_URL}/${id}/recommendations?api_key=${
         import.meta.env.VITE_API_KEY
       }&language=pt-BR`
     );
