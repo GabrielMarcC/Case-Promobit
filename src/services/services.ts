@@ -7,10 +7,6 @@ import {
   RecommendationsTypes,
 } from "../types";
 
-const api = import.meta.env.VITE_BASE_URL;
-
-console.log(api);
-
 export const MoviesServices = () => {
   const handlePopularMovies = async (page?: number): Promise<PopularMovies> => {
     const response = await axios.get<PopularMovies>(
