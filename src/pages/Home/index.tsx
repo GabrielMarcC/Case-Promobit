@@ -1,41 +1,28 @@
-import { useState, useEffect } from "react";
+import { MoviesCard } from "../../components";
 import { Hero } from "../../components";
-import { GridMovies } from "../../components";
-import axios from "axios";
-import { Movie } from "../../types/MoviesTypes";
-import { config } from "../../config";
+import { MoviesTypes } from "../../types/MoviesTypes";
+import { useMovie } from "../../hooks/useMovie";
+import { Pagination } from "../../components/Pagination";
+import { useGenresFilter } from "../../hooks";
 
 export const Home = () => {
-  const [data, setData] = useState<Movie[]>([]);
+  const { movie, handleChangePage } = useMovie();
+  const { filteredMovies, selectedGenreIds, getGenreId } = useGenresFilter({
+    movies: movie,
+  });
+  const displayMovies = selectedGenreIds.length > 0 ? filteredMovies : movie;
 
-  useEffect(() => {
-    handlePopularMovies();
-  }, []);
-
-  console.log(data);
-
-  const handlePopularMovies = async (): Promise<void> => {
-    await axios
-      .get(
-        `${config.base_URL}/popular?api_key=${config.apiKey}&language=pt-BR&page=1`
-      )
-      .then((response) => {
-        setData(response.data.results);
-      })
-      .catch((error: any) => {
-        console.log(error);
-      });
-  };
   return (
     <div>
-      <Hero />
-      <div className="flex justify-center lg:mt-8">
-        <div className="grid gap-x-4 grid-cols-2 md:pt-2 md:px-3 lg:gap-x-8 md:grid-cols-6 md:max-w-[1050px]">
-          {data.map((movie: Movie, index) => {
-            return <GridMovies data={movie} key={index} id={movie.id} />;
+      <Hero getGenreId={getGenreId} />
+      <section className="flex flex-col justify-center  lg:mt-8 max-w-[1024px] w-full m-auto">
+        <div className="grid  grid-cols-2  md:pt-2 md:px-3 lg:gap-x-4 smp:grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 p-4">
+          {displayMovies.map((movie: MoviesTypes, index) => {
+            return <MoviesCard movie={movie} key={index} id={movie.id} />;
           })}
         </div>
-      </div>
+        <Pagination handleChangePage={handleChangePage} />
+      </section>
     </div>
   );
 };
