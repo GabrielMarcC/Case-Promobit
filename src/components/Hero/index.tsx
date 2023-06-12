@@ -1,6 +1,11 @@
+import { GenresFilter } from "../GenresFilter";
 import { Header } from "../Header";
 
-export const Hero = () => {
+type GenresFilterProps = {
+  getGenreId: (id: number) => void;
+};
+
+export const Hero = ({ getGenreId }: GenresFilterProps) => {
   return (
     <section className="flex flex-col w-full h-[530px] bg-[#2D0C5E]">
       <Header />
@@ -10,14 +15,14 @@ export const Hero = () => {
             Milhões de filmes, séries e pessoas para descobrir. Explore já.
           </h2>
         </div>
-        <section className="ml-4">
-          <div className="max-w-[79px] mt-4 lg:mt-[40px]">
+        <div className="ml-4 flex flex-col justify-center items-start md:items-center lg:items-center">
+          <div className="max-w-[79px] mt-6 lg:mt-[40px]">
             <h3 className="text-[14px] text-white font-bold leading-5">
               FILTRE POR:
             </h3>
           </div>
-          <div></div>
-        </section>
+          <GenresFilter getGenreId={getGenreId} />
+        </div>
       </div>
     </section>
   );
