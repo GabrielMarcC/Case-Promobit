@@ -17,10 +17,10 @@ export const Details = () => {
   return (
     <div role="details page">
       <Header />
-      <section className="w-full sm:flex md:flex lg:flex">
+      <section className="w-full md:flex lg:flex">
         <div className="flex justify-center items-center bg-[#2D0C5E] sm:p-4 md:p-4 lg:px-10">
           <img
-            className="w-[186px] h-[279p] pt-9 sm:w-[400px] sm:h-[450px] md:w-[400px]  md:h-[574px] lg:w-[380px] lg:h-[574px] lg:pb-4"
+            className="w-[186px] h-[279p] pt-9 sm:w-[300px] sm:h-[450px] md:w-[300px]  md:h-[450px] lg:w-[380px] lg:h-[574px] lg:pb-4"
             src={`${urlImage}/${poster_path}`}
           />
         </div>
@@ -29,7 +29,7 @@ export const Details = () => {
             <h2 className="font-bold text-[32px] leading-[38px] tracking-tighter py-2">
               {title} ({newData?.yearFullYear().year})
             </h2>
-            <div className="flex flex-col sm:flex-row  md:flex-row lg:flex-row">
+            <div className="flex flex-col sm:gap-2 sm:flex-row  md:flex-row lg:flex-row">
               <span className=" md:pr-2 lg:pr-2">
                 {newData?.yearFullYear().fullYear} (BR)
               </span>
@@ -58,7 +58,7 @@ export const Details = () => {
               </p>
             </div>
           )}
-          <div className="flex justify-center gap-10 sm:justify-start md:justify-start lg:justify-start">
+          <div className="flex justify-center gap-10  md:justify-start lg:justify-start">
             <CrewCredits />
           </div>
         </div>
