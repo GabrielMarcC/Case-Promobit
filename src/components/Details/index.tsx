@@ -4,11 +4,19 @@ import { CastCredits } from "../CastCredits";
 import { CrewCredits } from "../CrewCredits";
 import { Header } from "../Header";
 import { useMovieDetails } from "../../hooks";
+import { VoteRate } from "../VoteRate";
 
 export const Details = () => {
   const { movieDetail } = useMovieDetails();
-  const { release_date, runtime, poster_path, title, overview, genres } =
-    movieDetail;
+  const {
+    release_date,
+    runtime,
+    poster_path,
+    title,
+    overview,
+    genres,
+    vote_average,
+  } = movieDetail;
   const newData = formatData(release_date);
   const duration = formatHour(runtime);
   const genreList = genres?.map((genre) => genre.name).join(" , ");
@@ -37,7 +45,8 @@ export const Details = () => {
               <span>{duration}</span>
             </div>
           </div>
-          <div className="py-4">
+          <div className="py-4 flex items-center">
+            <VoteRate vote_average={vote_average} />
             <h2>Avaliação dos usuários</h2>
           </div>
           {overview ? (
