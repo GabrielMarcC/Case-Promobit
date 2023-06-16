@@ -7,6 +7,4 @@ export interface GenresResponse {
   genres: Genre[];
 }
 
-export interface GenresTypes {
-  genres: Genre[];
-}
+

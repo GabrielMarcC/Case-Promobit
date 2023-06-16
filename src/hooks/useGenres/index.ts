@@ -7,7 +7,6 @@ export const useGenres = () => {
   const [genresData, setGenresData] = useState<GenresResponse>(
     {} as GenresResponse
   );
-  const [selectedGenreIds, setSelectedGenreIds] = useState<number[]>([]);
 
   useEffect(() => {
     genreService.handleGenres().then((response) => {
@@ -15,15 +14,7 @@ export const useGenres = () => {
     });
   }, []);
 
-  const getGenreId = (id: number) => {
-    const verifiedId = selectedGenreIds.filter((genreId) => genreId != id);
+  
 
-    if (selectedGenreIds.includes(id)) {
-      setSelectedGenreIds(verifiedId);
-    } else {
-      setSelectedGenreIds([...selectedGenreIds, id]);
-    }
-  };
-
-  return { genresData, getGenreId, selectedGenreIds };
+  return { genresData};
 };
