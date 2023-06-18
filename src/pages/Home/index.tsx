@@ -1,8 +1,8 @@
 import { MoviesCard } from "../../components";
 import { Hero } from "../../components";
 import { MoviesTypes } from "../../types/MoviesTypes";
-import { useMovie } from "../../hooks/useMovie";
-import { Pagination } from "../../components/Pagination";
+import { useMovie } from "../../hooks";
+import { Pagination } from "../../components";
 import { useGenresFilter } from "../../hooks";
 
 export const Home = () => {

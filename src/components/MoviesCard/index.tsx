@@ -1,5 +1,5 @@
 import { MoviesTypes } from "../../types/MoviesTypes";
-import { formatData } from "../../utils/formatData";
+import { formatData } from "../../utils";
 import { useNavigate } from "react-router";
 
 type Props = {
